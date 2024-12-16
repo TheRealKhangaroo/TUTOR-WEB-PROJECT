@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join a Free Tutoring Session</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        input[type="email"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 500px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #ffaa4a;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1em;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Join a Free Tutoring Session</h1>
+        <p>Enter your email below to sign up for our free tutoring sessions.</p>
+        <form id="emailForm">
+            <input type="email" id="email" placeholder="Your Email Address" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        // Array to store emails
+        const emailList = [];
+
+        // Handle form submission
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            // Get the email value
+            const emailInput = document.getElementById('email');
+            const email = emailInput.value.trim();
+
+            if (email) {
+                // Add email to the array
+                emailList.push(email);
+
+                // Clear the input field
+                emailInput.value = '';
+
+                // Display success message
+                const messageDiv = document.getElementById('message');
+                messageDiv.textContent = 'Thank you for signing up!';
+
+                console.log(emailList); // Log the list of emails for now
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
+</body>
+</html>
